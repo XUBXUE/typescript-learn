@@ -21,6 +21,16 @@ let names: any[] = [1, 'xbx', true];
 let arr: Array<number | string | boolean> = [1, 2, 3, "4", true];
 let arr2: Array<any> = [1, 2, 3, "4", true];
 
+// ReadonlyArray类型
+let a2: number[] = [1, 2, 3, 4];
+let ro: ReadonlyArray<number> = a2;
+// ro[0] = 12; // error!
+// ro.push(5); // error!
+// ro.length = 100; // error!
+// a2 = ro; // error!
+a2 = ro as Array<number>// ro as number[]
+
+
 // 元组 规定一个已知元素数量和类型的数组
 let arr3: [string, number];
 arr3 = ['1', 123];
