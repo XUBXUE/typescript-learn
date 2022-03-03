@@ -45,3 +45,37 @@ const people3: interface2 = {
     age: 23,
     stature: 180  // 不断言会报错
 };
+// 3、第三种 直接赋值给另一个对象
+
+
+/**
+ * 函数类型
+ */
+// 1、
+interface MyFunc {
+    (name: string, age: number): string;
+}
+let introduce: MyFunc;
+introduce = function (name, age) {
+    return `my name is ${name}, I'm ${age} years old;`;
+}
+// 2、
+enum Sex2 { Male, Female }
+const isMale = (sex: number): boolean => {
+    return sex == Sex2.Male;
+}
+console.log(isMale(0));
+console.log(isMale(1));
+
+/**
+ * 可索引的类型
+ * 可索引类型具有一个 索引签名，它描述了对象索引的类型，还有相应的索引返回值类型。
+ * TS只支持两种索引签名：字符串和数字。
+ */
+// 1、定义一个类数组或数组的类型 其属性为数值类型，值为字符串类型
+interface StringArray {
+    [index: number]: string
+}
+// 以下两种都适合
+let strArr: StringArray = ['A', 'B'];
+let strObj: StringArray = {0: 'a', 1: 'b'};
